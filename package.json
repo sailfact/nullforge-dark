@@ -1,7 +1,7 @@
 {
   "name": "nullforge",
   "displayName": "nullforge",
-  "description": "nullforge theme for Visual Studio Code",
+  "description": "Nullforge — a forge-orange and null-navy theme for Visual Studio Code, in dark and light.",
   "publisher": "sailfact",
   "version": "1.0.1",
   "engines": {
@@ -10,19 +10,33 @@
   "categories": [
     "Themes"
   ],
-  "icon": "icon.png",
+  "icon": "assets/icon.png",
   "contributes": {
     "themes": [
       {
-        "label": "nullforge-theme",
+        "label": "Nullforge Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/nullforge-theme.json"
+        "path": "./themes/nullforge-dark.json"
+      },
+      {
+        "label": "Nullforge Light",
+        "uiTheme": "vs",
+        "path": "./themes/nullforge-light.json"
       }
     ]
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "verify": "node scripts/verify.js",
+    "lint": "node scripts/lint.js",
+    "package": "npm run build && npm run verify && vsce package"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.6.0",
+    "js-yaml": "^4.1.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sailfact/nullforge-theme.git"
   }
 }
-  

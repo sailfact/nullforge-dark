@@ -1,0 +1,559 @@
+# Nullforge theme source — the single source of truth for every variant.
+# Imported from the Nullforge Design System (claude.ai/design). Edit this file,
+# then run `npm run build`; `npm run verify` proves the output still matches.
+#
+# Every colour below the `variants:` line is a $ROLE resolved from `palettes`.
+# Hex appears only inside `palettes`. `!alpha [$ROLE, '40']` appends a constant
+# alpha suffix; `~` omits the key for that variant.
+
+$schema: vscode://schemas/color-theme
+type: $TYPE
+semanticHighlighting: true
+
+palettes:
+  dark:
+    TYPE:                                           dark
+    # --- brand accent (identical in both themes) ---
+    ACCENT:                                         '#c4622d'      # forge-500 — cursor, keywords, status bar
+    ACCENT_DEEP:                                    '#8f4420'      # forge-700 — pressed/hover accent, debug
+    ACCENT_SOFT:                                    '#e8a882'      # forge-200 / forge-700 — strings, types
+    DANGER_DEEP:                                    '#a13c2a'      # status bar error chip
+    # --- chrome that stays dark in BOTH themes (brand presence) ---
+    NULL_700:                                       '#1a2a3a'      # active activity-bar item
+    NULL_400:                                       '#3d5a75'      # inactive rail icons, merge highlight base
+    NULL_200:                                       '#7a9bb8'      # inactive title-bar text
+    PARCHMENT:                                      '#f2ece6'      # neutral-50 — text on accent + dark chrome
+    # --- text ramp ---
+    FG:                                             '#f2ece6'      # primary editor + UI text
+    FG_MUTED:                                       '#7a9bb8'      # descriptions, inactive tabs, placeholders
+    FG_DIM:                                         '#3d5a75'      # ansi bright-black, scrollbar slider base
+    FG_FAINT:                                       '#3d5a75'      # line numbers, input borders, ignored files
+    FG_COOL:                                        '#dce6f0'      # ansi cyan, bracket pair 5
+    # --- syntax ---
+    SYN_OPERATOR:                                   '#dce6f0'      # operators, punctuation, parameters
+    SYN_FUNCTION:                                   '#f7e8df'      # function names
+    SYN_BRACKET_6:                                  '#f7e8df'      # bracket pair 6
+    # --- status ---
+    SUCCESS:                                        '#8fb27e'      # added / untracked / ansi green
+    DANGER:                                         '#d97264'      # errors, deletions, ansi red
+    INFO:                                           '#7a9bb8'      # info diagnostics, ansi blue
+    # --- surfaces ---
+    SURFACE_EDITOR:                                 '#1a2a3a'      # editor canvas, active tab, breadcrumbs
+    SURFACE_INPUT:                                  '#1a2a3a'      # inputs, dropdowns, notifications, quick pick
+    SURFACE_PANEL:                                  '#1a2a3a'      # side bar, secondary buttons, peek title
+    SURFACE_SECTION:                                '#1a2a3a'      # panel section header
+    SURFACE_SUNKEN:                                 '#22344a'      # indent guides, rulers, peek editor
+    SURFACE_HOVER:                                  '#22344a'      # list hover/focus, tab hover, section header
+    SURFACE_TABS:                                   '#06101a'      # tab strip, panel, code blocks
+    SURFACE_TERMINAL:                               '#06101a'      # integrated terminal
+    SURFACE_CHROME:                                 '#06101a'      # activity bar + title bar (dark in both)
+    SURFACE_RAIL:                                   '#22344a'      # borders + chips on the dark chrome band
+    # --- borders ---
+    BORDER:                                         '#22344a'      # default separators
+    BORDER_SUBTLE:                                  '#1a2a3a'      # panel, picker, notification-centre edges
+    BORDER_SECTION:                                 '#06101a'      # side-bar section header rule
+    # --- terminal specifics ---
+    ANSI_BLACK:                                     '#0a1420'
+    ANSI_BRIGHT_YELLOW:                             '#e8a882'
+    CURSOR_BG:                                      '#0a1420'      # text under the block cursor
+    # --- literal alpha values (the alpha itself differs per theme) ---
+    TRANSPARENT:                                    '#00000000'
+    SHADOW:                                         '#00000088'
+    WHITESPACE:                                     '#3d5a7555'    # light needs no alpha to sit back
+    LINE_HIGHLIGHT:                                 '#22344a99'
+    LIST_HOVER:                                     '#22344a99'
+    SELECTION:                                      '#c4622d40'
+    SELECTION_SUBTLE:                               '#c4622d22'
+    INPUT_OPTION:                                   '#c4622d44'
+    WORD_HIGHLIGHT:                                 '#3d5a7544'
+    WORD_HIGHLIGHT_STRONG:                          '#3d5a7566'
+    BG_ERROR:                                       '#a13c2a'      # light tints, dark fills
+    BG_WARNING:                                     '#8f4420'
+    BG_INFO:                                        '#1a2a3a'
+    STATUS_ITEM_HOVER:                              '#8f422088'    # NB: #8f4220, one digit off $ACCENT_DEEP — kept as authored
+
+  light:
+    TYPE:                                           light
+    # --- brand accent (identical in both themes) ---
+    ACCENT:                                         '#c4622d'      # forge-500 — cursor, keywords, status bar
+    ACCENT_DEEP:                                    '#8f4420'      # forge-700 — pressed/hover accent, debug
+    ACCENT_SOFT:                                    '#8f4420'      # forge-200 / forge-700 — strings, types
+    DANGER_DEEP:                                    '#a13c2a'      # status bar error chip
+    # --- chrome that stays dark in BOTH themes (brand presence) ---
+    NULL_700:                                       '#1a2a3a'      # active activity-bar item
+    NULL_400:                                       '#3d5a75'      # inactive rail icons, merge highlight base
+    NULL_200:                                       '#7a9bb8'      # inactive title-bar text
+    PARCHMENT:                                      '#f2ece6'      # neutral-50 — text on accent + dark chrome
+    # --- text ramp ---
+    FG:                                             '#110e0b'      # primary editor + UI text
+    FG_MUTED:                                       '#6b6058'      # descriptions, inactive tabs, placeholders
+    FG_DIM:                                         '#6b6058'      # ansi bright-black, scrollbar slider base
+    FG_FAINT:                                       '#c8bfb5'      # line numbers, input borders, ignored files
+    FG_COOL:                                        '#1a2a3a'      # ansi cyan, bracket pair 5
+    # --- syntax ---
+    SYN_OPERATOR:                                   '#3d5a75'      # operators, punctuation, parameters
+    SYN_FUNCTION:                                   '#1a2a3a'      # function names
+    SYN_BRACKET_6:                                  '#6b6058'      # bracket pair 6
+    # --- status ---
+    SUCCESS:                                        '#4a7c3a'      # added / untracked / ansi green
+    DANGER:                                         '#a13c2a'      # errors, deletions, ansi red
+    INFO:                                           '#3d5a75'      # info diagnostics, ansi blue
+    # --- surfaces ---
+    SURFACE_EDITOR:                                 '#f2ece6'      # editor canvas, active tab, breadcrumbs
+    SURFACE_INPUT:                                  '#fbf6f1'      # inputs, dropdowns, notifications, quick pick
+    SURFACE_PANEL:                                  '#e8e0d6'      # side bar, secondary buttons, peek title
+    SURFACE_SECTION:                                '#dcd2c6'      # panel section header
+    SURFACE_SUNKEN:                                 '#e8e0d6'      # indent guides, rulers, peek editor
+    SURFACE_HOVER:                                  '#dcd2c6'      # list hover/focus, tab hover, section header
+    SURFACE_TABS:                                   '#e8e0d6'      # tab strip, panel, code blocks
+    SURFACE_TERMINAL:                               '#fbf6f1'      # integrated terminal
+    SURFACE_CHROME:                                 '#0a1420'      # activity bar + title bar (dark in both)
+    SURFACE_RAIL:                                   '#1a2a3a'      # borders + chips on the dark chrome band
+    # --- borders ---
+    BORDER:                                         '#c8bfb5'      # default separators
+    BORDER_SUBTLE:                                  '#c8bfb5'      # panel, picker, notification-centre edges
+    BORDER_SECTION:                                 '#c8bfb5'      # side-bar section header rule
+    # --- terminal specifics ---
+    ANSI_BLACK:                                     '#110e0b'
+    ANSI_BRIGHT_YELLOW:                             '#c4622d'
+    CURSOR_BG:                                      '#f2ece6'      # text under the block cursor
+    # --- literal alpha values (the alpha itself differs per theme) ---
+    TRANSPARENT:                                    '#00000000'
+    SHADOW:                                         '#11000022'
+    WHITESPACE:                                     '#c8bfb5'      # light needs no alpha to sit back
+    LINE_HIGHLIGHT:                                 '#e8e0d6aa'
+    LIST_HOVER:                                     '#dcd2c688'
+    SELECTION:                                      '#c4622d33'
+    SELECTION_SUBTLE:                               '#c4622d1c'
+    INPUT_OPTION:                                   '#c4622d33'
+    WORD_HIGHLIGHT:                                 '#c8bfb555'
+    WORD_HIGHLIGHT_STRONG:                          '#c8bfb588'
+    BG_ERROR:                                       '#a13c2a22'    # light tints, dark fills
+    BG_WARNING:                                     '#c4622d22'
+    BG_INFO:                                        '#3d5a7522'
+    STATUS_ITEM_HOVER:                              '#8f422088'    # NB: #8f4220, one digit off $ACCENT_DEEP — kept as authored
+
+variants:
+  - id: dark
+    label: "Nullforge Dark"
+    uiTheme: vs-dark
+    file: nullforge-dark.json
+  - id: light
+    label: "Nullforge Light"
+    uiTheme: vs
+    file: nullforge-light.json
+
+colors:
+  # editor surfaces
+  editor.background:                              $SURFACE_EDITOR
+  editor.foreground:                              $FG
+  editor.lineHighlightBackground:                 $LINE_HIGHLIGHT
+  editor.lineHighlightBorder:                     $TRANSPARENT
+  editor.selectionBackground:                     $SELECTION
+  editor.selectionHighlightBackground:            $SELECTION_SUBTLE
+  editor.inactiveSelectionBackground:             $SELECTION_SUBTLE
+  editor.wordHighlightBackground:                 $WORD_HIGHLIGHT
+  editor.wordHighlightStrongBackground:           $WORD_HIGHLIGHT_STRONG
+  editor.findMatchBackground:                     !alpha [$ACCENT, '55']
+  editor.findMatchHighlightBackground:            !alpha [$ACCENT, '22']
+  editor.hoverHighlightBackground:                $WORD_HIGHLIGHT
+  editorWhitespace.foreground:                    $WHITESPACE
+  editorIndentGuide.background1:                  $SURFACE_SUNKEN
+  editorIndentGuide.activeBackground1:            $FG_FAINT
+  editorLineNumber.foreground:                    $FG_FAINT
+  editorLineNumber.activeForeground:              $ACCENT
+  editorRuler.foreground:                         $SURFACE_SUNKEN
+  editorCursor.foreground:                        $ACCENT
+  editorCursor.background:                        $SURFACE_EDITOR
+  editorBracketMatch.background:                  !alpha [$ACCENT, '22']
+  editorBracketMatch.border:                      !alpha [$ACCENT, '88']
+  editorBracketHighlight.foreground1:             $ACCENT
+  editorBracketHighlight.foreground2:             $ACCENT_SOFT
+  editorBracketHighlight.foreground3:             $INFO
+  editorBracketHighlight.foreground4:             $SUCCESS
+  editorBracketHighlight.foreground5:             $FG_COOL
+  editorBracketHighlight.foreground6:             $SYN_BRACKET_6
+
+  # gutter / overview ruler
+  editorGutter.background:                        $SURFACE_EDITOR
+  editorGutter.modifiedBackground:                $ACCENT
+  editorGutter.addedBackground:                   $SUCCESS
+  editorGutter.deletedBackground:                 $DANGER
+  editorOverviewRuler.border:                     $SURFACE_PANEL
+  editorOverviewRuler.modifiedForeground:         !alpha [$ACCENT, 'cc']
+  editorOverviewRuler.addedForeground:            !alpha [$SUCCESS, 'cc']
+  editorOverviewRuler.deletedForeground:          !alpha [$DANGER, 'cc']
+  editorOverviewRuler.errorForeground:            $DANGER
+  editorOverviewRuler.warningForeground:          $ACCENT
+  editorOverviewRuler.infoForeground:             $INFO
+
+  # diagnostics
+  editorError.foreground:                         $DANGER
+  editorWarning.foreground:                       $ACCENT
+  editorInfo.foreground:                          $INFO
+
+  # widgets — suggest / hover / peek-marker popovers
+  editorWidget.background:                        $SURFACE_INPUT
+  editorWidget.foreground:                        $FG
+  editorWidget.border:                            $BORDER
+  editorWidget.resizeBorder:                      $ACCENT
+  editorSuggestWidget.background:                 $SURFACE_INPUT
+  editorSuggestWidget.foreground:                 $FG
+  editorSuggestWidget.border:                     $BORDER
+  editorSuggestWidget.selectedBackground:         $SURFACE_HOVER
+  editorSuggestWidget.selectedForeground:         $FG
+  editorSuggestWidget.highlightForeground:        $ACCENT
+  editorSuggestWidget.focusHighlightForeground:   $ACCENT_SOFT
+  editorHoverWidget.background:                   $SURFACE_INPUT
+  editorHoverWidget.foreground:                   $FG
+  editorHoverWidget.border:                       $BORDER
+  editorHoverWidget.statusBarBackground:          $SURFACE_SUNKEN
+  editorGhostText.foreground:                     $FG_FAINT
+  editorMarkerNavigation.background:              $SURFACE_INPUT
+  editorMarkerNavigationError.background:         $BG_ERROR
+  editorMarkerNavigationWarning.background:       $BG_WARNING
+  editorMarkerNavigationInfo.background:          $BG_INFO
+
+  # activity bar (left rail)
+  activityBar.background:                         $SURFACE_CHROME
+  activityBar.foreground:                         $PARCHMENT
+  activityBar.inactiveForeground:                 $NULL_400
+  activityBar.activeBackground:                   $NULL_700
+  activityBar.activeBorder:                       $ACCENT
+  activityBar.border:                             $SURFACE_RAIL
+  activityBarBadge.background:                    $ACCENT
+  activityBarBadge.foreground:                    $PARCHMENT
+
+  # sidebar (file explorer)
+  sideBar.background:                             $SURFACE_PANEL
+  sideBar.foreground:                             $FG_MUTED
+  sideBar.border:                                 $BORDER
+  sideBarTitle.foreground:                        $FG
+  sideBarSectionHeader.background:                $SURFACE_HOVER
+  sideBarSectionHeader.foreground:                $FG
+  sideBarSectionHeader.border:                    $BORDER_SECTION
+  list.activeSelectionBackground:                 $ACCENT
+  list.activeSelectionForeground:                 $PARCHMENT
+  list.inactiveSelectionBackground:               $SURFACE_HOVER
+  list.inactiveSelectionForeground:               $FG
+  list.hoverBackground:                           $LIST_HOVER
+  list.hoverForeground:                           $FG
+  list.focusBackground:                           $SURFACE_HOVER
+  list.focusForeground:                           $FG
+  list.highlightForeground:                       $ACCENT
+  list.dropBackground:                            !alpha [$ACCENT, '22']
+
+  # tree icons / decorations
+  tree.indentGuidesStroke:                        $BORDER
+  gitDecoration.modifiedResourceForeground:       $ACCENT
+  gitDecoration.addedResourceForeground:          $SUCCESS
+  gitDecoration.deletedResourceForeground:        $DANGER
+  gitDecoration.untrackedResourceForeground:      $SUCCESS
+  gitDecoration.ignoredResourceForeground:        $FG_FAINT
+  gitDecoration.conflictingResourceForeground:    $DANGER
+
+  # title bar / window chrome
+  titleBar.activeBackground:                      $SURFACE_CHROME
+  titleBar.activeForeground:                      $PARCHMENT
+  titleBar.inactiveBackground:                    $SURFACE_CHROME
+  titleBar.inactiveForeground:                    $NULL_200
+  titleBar.border:                                $SURFACE_RAIL
+  menubar.selectionBackground:                    $SURFACE_RAIL
+  menubar.selectionForeground:                    $PARCHMENT
+
+  # tabs
+  editorGroupHeader.tabsBackground:               $SURFACE_TABS
+  editorGroupHeader.tabsBorder:                   $BORDER
+  editorGroupHeader.border:                       $BORDER
+  editorGroup.border:                             $BORDER
+  tab.activeBackground:                           $SURFACE_EDITOR
+  tab.activeForeground:                           $FG
+  tab.activeBorderTop:                            $ACCENT
+  tab.activeBorder:                               $SURFACE_EDITOR
+  tab.inactiveBackground:                         $SURFACE_TABS
+  tab.inactiveForeground:                         $FG_MUTED
+  tab.hoverBackground:                            $SURFACE_HOVER
+  tab.hoverForeground:                            $FG
+  tab.border:                                     $BORDER
+  tab.unfocusedActiveBorderTop:                   $FG_FAINT
+
+  # breadcrumbs
+  breadcrumb.background:                          $SURFACE_EDITOR
+  breadcrumb.foreground:                          $FG_MUTED
+  breadcrumb.focusForeground:                     $FG
+  breadcrumb.activeSelectionForeground:           $ACCENT
+  breadcrumbPicker.background:                    $SURFACE_INPUT
+
+  # status bar
+  statusBar.background:                           $ACCENT
+  statusBar.foreground:                           $PARCHMENT
+  statusBar.border:                               $ACCENT_DEEP
+  statusBar.noFolderBackground:                   $SURFACE_RAIL
+  statusBar.noFolderForeground:                   $PARCHMENT
+  statusBar.debuggingBackground:                  $ACCENT_DEEP
+  statusBar.debuggingForeground:                  $PARCHMENT
+  statusBarItem.hoverBackground:                  $STATUS_ITEM_HOVER
+  statusBarItem.remoteBackground:                 $SURFACE_RAIL
+  statusBarItem.remoteForeground:                 $PARCHMENT
+  statusBarItem.errorBackground:                  $DANGER_DEEP
+  statusBarItem.errorForeground:                  $PARCHMENT
+  statusBarItem.warningBackground:                $ACCENT_DEEP
+  statusBarItem.warningForeground:                $PARCHMENT
+
+  # panel (terminal/output/problems)
+  panel.background:                               $SURFACE_TABS
+  panel.border:                                   $BORDER_SUBTLE
+  panelTitle.activeForeground:                    $ACCENT
+  panelTitle.activeBorder:                        $ACCENT
+  panelTitle.inactiveForeground:                  $FG_MUTED
+  panelSectionHeader.background:                  $SURFACE_SECTION
+
+  # terminal — ANSI mapped to brand palette
+  terminal.background:                            $SURFACE_TERMINAL
+  terminal.foreground:                            $FG
+  terminal.ansiBlack:                             $ANSI_BLACK
+  terminal.ansiRed:                               $DANGER
+  terminal.ansiGreen:                             $SUCCESS
+  terminal.ansiYellow:                            $ACCENT
+  terminal.ansiBlue:                              $INFO
+  terminal.ansiMagenta:                           $ACCENT_SOFT
+  terminal.ansiCyan:                              $FG_COOL
+  terminal.ansiWhite:                             $PARCHMENT
+  terminal.ansiBrightBlack:                       $FG_DIM
+  terminal.ansiBrightRed:                         $DANGER
+  terminal.ansiBrightGreen:                       $SUCCESS
+  terminal.ansiBrightYellow:                      $ANSI_BRIGHT_YELLOW
+  terminal.ansiBrightBlue:                        $INFO
+  terminal.ansiBrightMagenta:                     $ACCENT_SOFT
+  terminal.ansiBrightCyan:                        $FG_COOL
+  terminal.ansiBrightWhite:                       $PARCHMENT
+  terminalCursor.background:                      $CURSOR_BG
+  terminalCursor.foreground:                      $ACCENT
+
+  # inputs / dropdowns / buttons
+  input.background:                               $SURFACE_INPUT
+  input.foreground:                               $FG
+  input.border:                                   $FG_FAINT
+  input.placeholderForeground:                    $FG_MUTED
+  inputOption.activeBackground:                   $INPUT_OPTION
+  inputOption.activeBorder:                       $ACCENT
+  inputOption.activeForeground:                   $FG
+  inputValidation.errorBackground:                $BG_ERROR
+  inputValidation.errorBorder:                    $DANGER
+  inputValidation.warningBackground:              $BG_WARNING
+  inputValidation.warningBorder:                  $ACCENT
+  inputValidation.infoBackground:                 $BG_INFO
+  inputValidation.infoBorder:                     $INFO
+  dropdown.background:                            $SURFACE_INPUT
+  dropdown.foreground:                            $FG
+  dropdown.border:                                $FG_FAINT
+  button.background:                              $ACCENT
+  button.foreground:                              $PARCHMENT
+  button.hoverBackground:                         $ACCENT_DEEP
+  button.secondaryBackground:                     $SURFACE_PANEL
+  button.secondaryForeground:                     $FG
+  button.secondaryHoverBackground:                $FG_FAINT
+  checkbox.background:                            $SURFACE_INPUT
+  checkbox.foreground:                            $ACCENT
+  checkbox.border:                                $FG_FAINT
+
+  # quickpick / command palette
+  quickInput.background:                          $SURFACE_INPUT
+  quickInput.foreground:                          $FG
+  quickInputTitle.background:                     $SURFACE_SUNKEN
+  pickerGroup.foreground:                         $ACCENT
+  pickerGroup.border:                             $BORDER_SUBTLE
+
+  # scrollbar
+  scrollbar.shadow:                               $TRANSPARENT
+  scrollbarSlider.background:                     !alpha [$FG_DIM, '55']
+  scrollbarSlider.hoverBackground:                !alpha [$FG_DIM, '88']
+  scrollbarSlider.activeBackground:               !alpha [$ACCENT, '88']
+
+  # minimap
+  minimap.background:                             $SURFACE_EDITOR
+  minimap.selectionHighlight:                     $ACCENT
+  minimap.findMatchHighlight:                     $ACCENT
+  minimap.errorHighlight:                         $DANGER
+  minimap.warningHighlight:                       $ACCENT
+  minimapSlider.background:                       !alpha [$FG_FAINT, '44']
+  minimapSlider.hoverBackground:                  !alpha [$FG_FAINT, '66']
+  minimapSlider.activeBackground:                 !alpha [$ACCENT, '66']
+
+  # notifications / badges
+  notificationCenter.border:                      $BORDER_SUBTLE
+  notificationCenterHeader.background:            $SURFACE_SUNKEN
+  notificationCenterHeader.foreground:            $FG
+  notifications.background:                       $SURFACE_INPUT
+  notifications.foreground:                       $FG
+  notifications.border:                           $BORDER
+  notificationsErrorIcon.foreground:              $DANGER
+  notificationsWarningIcon.foreground:            $ACCENT
+  notificationsInfoIcon.foreground:               $INFO
+  badge.background:                               $ACCENT
+  badge.foreground:                               $PARCHMENT
+  progressBar.background:                         $ACCENT
+
+  # peek / diff / merge
+  peekView.border:                                $ACCENT
+  peekViewEditor.background:                      $SURFACE_SUNKEN
+  peekViewEditor.matchHighlightBackground:        !alpha [$ACCENT, '44']
+  peekViewResult.background:                      $SURFACE_INPUT
+  peekViewResult.selectionBackground:             !alpha [$ACCENT, '44']
+  peekViewResult.selectionForeground:             $FG
+  peekViewTitle.background:                       $SURFACE_PANEL
+  peekViewTitleLabel.foreground:                  $FG
+  peekViewTitleDescription.foreground:            $FG_MUTED
+  diffEditor.insertedTextBackground:              !alpha [$SUCCESS, '22']
+  diffEditor.removedTextBackground:               !alpha [$DANGER, '22']
+  diffEditorGutter.insertedLineBackground:        !alpha [$SUCCESS, '22']
+  diffEditorGutter.removedLineBackground:         !alpha [$DANGER, '22']
+  merge.currentHeaderBackground:                  !alpha [$ACCENT, '66']
+  merge.currentContentBackground:                 !alpha [$ACCENT, '22']
+  merge.incomingHeaderBackground:                 !alpha [$NULL_400, '88']
+  merge.incomingContentBackground:                !alpha [$NULL_400, '44']
+
+  # misc focus + borders
+  focusBorder:                                    $ACCENT
+  foreground:                                     $FG
+  descriptionForeground:                          $FG_MUTED
+  errorForeground:                                $DANGER
+  icon.foreground:                                $FG_MUTED
+  widget.shadow:                                  $SHADOW
+  selection.background:                           !alpha [$ACCENT, '40']
+  textLink.foreground:                            $ACCENT
+  textLink.activeForeground:                      $ACCENT_SOFT
+  textBlockQuote.background:                      $SURFACE_PANEL
+  textBlockQuote.border:                          $ACCENT
+  textCodeBlock.background:                       $SURFACE_TABS
+  textPreformat.foreground:                       $ACCENT_SOFT
+  textSeparator.foreground:                       $BORDER_SUBTLE
+
+tokenColors:
+  - name: "Comments"
+    scope: ["comment", "punctuation.definition.comment"]
+    settings:
+      foreground: $FG_MUTED
+      fontStyle: italic
+  - name: "Strings"
+    scope: ["string", "punctuation.definition.string"]
+    settings:
+      foreground: $ACCENT_SOFT
+  - name: "String escapes"
+    scope: ["constant.character.escape", "constant.other.placeholder"]
+    settings:
+      foreground: $ACCENT
+  - name: "Numbers / constants"
+    scope: ["constant.numeric", "constant.language", "support.constant"]
+    settings:
+      foreground: $ACCENT_SOFT
+  - name: "Booleans / null"
+    scope: ["constant.language.boolean", "constant.language.null", "constant.language.undefined"]
+    settings:
+      foreground: $ACCENT
+  - name: "Keywords"
+    scope: ["keyword", "keyword.control", "storage.type", "storage.modifier"]
+    settings:
+      foreground: $ACCENT
+  - name: "Operators"
+    scope: ["keyword.operator", "punctuation"]
+    settings:
+      foreground: $SYN_OPERATOR
+  - name: "Functions"
+    scope: ["entity.name.function", "support.function", "meta.function-call entity.name.function"]
+    settings:
+      foreground: $SYN_FUNCTION
+  - name: "Function parameters"
+    scope: ["variable.parameter", "meta.parameter"]
+    settings:
+      foreground: $SYN_OPERATOR
+      fontStyle: italic
+  - name: "Variables"
+    scope: ["variable", "variable.other.readwrite"]
+    settings:
+      foreground: $FG
+  - name: "Properties"
+    scope: ["variable.other.property", "meta.object-literal.key", "support.type.property-name"]
+    settings:
+      foreground: $INFO
+  - name: "Types / classes"
+    scope: ["entity.name.type", "entity.name.class", "support.type", "support.class", "storage.type.class"]
+    settings:
+      foreground: $ACCENT_SOFT
+  - name: "Interfaces"
+    scope: ["entity.other.inherited-class", "entity.name.type.interface"]
+    settings:
+      foreground: $ACCENT_SOFT
+      fontStyle: italic
+  - name: "Tags (HTML/JSX)"
+    scope: ["entity.name.tag", "punctuation.definition.tag"]
+    settings:
+      foreground: $ACCENT
+  - name: "Attributes"
+    scope: ["entity.other.attribute-name"]
+    settings:
+      foreground: $ACCENT_SOFT
+      fontStyle: italic
+  - name: "Markup headings"
+    scope: ["markup.heading", "entity.name.section"]
+    settings:
+      foreground: $ACCENT
+      fontStyle: bold
+  - name: "Markup bold"
+    scope: ["markup.bold"]
+    settings:
+      foreground: $FG
+      fontStyle: bold
+  - name: "Markup italic"
+    scope: ["markup.italic"]
+    settings:
+      foreground: $FG
+      fontStyle: italic
+  - name: "Markup link"
+    scope: ["markup.underline.link"]
+    settings:
+      foreground: $ACCENT
+      fontStyle: underline
+  - name: "Markup code"
+    scope: ["markup.inline.raw", "markup.raw.block"]
+    settings:
+      foreground: $ACCENT_SOFT
+  - name: "Markup quote"
+    scope: ["markup.quote"]
+    settings:
+      foreground: $FG_MUTED
+      fontStyle: italic
+  - name: "Markup added"
+    scope: ["markup.inserted"]
+    settings:
+      foreground: $SUCCESS
+  - name: "Markup deleted"
+    scope: ["markup.deleted"]
+    settings:
+      foreground: $DANGER
+  - name: "Markup changed"
+    scope: ["markup.changed"]
+    settings:
+      foreground: $ACCENT
+  - name: "Invalid / deprecated"
+    scope: ["invalid", "invalid.deprecated"]
+    settings:
+      foreground: $DANGER
+      fontStyle: underline
+  - name: "Regex"
+    scope: ["string.regexp"]
+    settings:
+      foreground: $ACCENT_SOFT
+  - name: "Embedded punctuation (JSX braces)"
+    scope: ["punctuation.section.embedded", "meta.brace"]
+    settings:
+      foreground: $INFO
+  - name: "Decorators"
+    scope: ["meta.decorator", "punctuation.decorator", "entity.name.function.decorator"]
+    settings:
+      foreground: $ACCENT_SOFT
+      fontStyle: italic
+  - name: "TOML / INI keys"
+    scope: ["entity.name.tag.toml", "keyword.key.toml"]
+    settings:
+      foreground: $ACCENT
